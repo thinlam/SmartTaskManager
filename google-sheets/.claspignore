@@ -1,7 +1,4 @@
-﻿**/**
-!src/**/*.gs
-!src/appsscript.json
-**/node_modules/**
+﻿**/node_modules/**
 **/.git/**
 **/*.md
 tsconfig.test.json
