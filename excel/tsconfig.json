@@ -4,7 +4,7 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es2019",
-    "types": [],
+    "types": ["office-js"],
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,

@@ -10,3 +10,21 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+build/
+*.tsbuildinfo
+
+# Office add-in
+*.js.map
+dist-test/
+tsconfig.test.json
+
+# Clasp / Google Apps Script
+.clasp.json
+.claspignore
