@@ -9,3 +9,5 @@ build/
 
 # Office add-in
 *.js.map
+dist-test/
+tsconfig.test.json
