@@ -308,3 +308,63 @@ var DEADLINE_COLORS = Object.freeze((function () {
   map[DEADLINE_STATUS.NO_DEADLINE] = "#CBD5E1";
   return map;
 })());
+
+// ==================================================
+// SHEET COLUMN SCHEMA (Phase 5)
+// ==================================================
+// TASK_FIELDS quyết định THỨ TỰ CỘT thật trong sheet 02_Tasks và cũng là
+// key dùng khi map giữa 1 hàng sheet <-> 1 object Task trong code.
+// TASK_HEADERS là nhãn hiển thị tương ứng theo đúng thứ tự với TASK_FIELDS.
+// Không được sửa thứ tự 1 mảng mà không sửa mảng còn lại - 2 mảng PHẢI
+// luôn có cùng độ dài và cùng thứ tự ý nghĩa.
+
+var TASK_FIELDS = Object.freeze([
+  "taskId", "taskName", "description",
+  "projectId", "projectName", "category", "tags",
+  "ownerId", "ownerName", "ownerEmail", "createdBy",
+  "priority", "status",
+  "startDate", "dueDate", "completedDate",
+  "progress", "estimatedHours", "actualHours",
+  "daysRemaining", "deadlineStatus",
+  "smartScore", "smartPriority",
+  "riskLevel", "healthStatus",
+  "isOverdue", "isBlocked",
+  "recommendedAction",
+  "dependencyTaskId", "recurringType",
+  "createdAt", "updatedAt", "lastStatusChangedAt",
+  "notes"
+]);
+
+var TASK_HEADERS = Object.freeze([
+  "Task ID", "Task Name", "Description",
+  "Project ID", "Project Name", "Category", "Tags",
+  "Owner ID", "Owner Name", "Owner Email", "Created By",
+  "Priority", "Status",
+  "Start Date", "Due Date", "Completed Date",
+  "Progress (%)", "Estimated Hours", "Actual Hours",
+  "Days Remaining", "Deadline Status",
+  "Smart Score", "Smart Priority",
+  "Risk Level", "Health Status",
+  "Is Overdue", "Is Blocked",
+  "Recommended Action",
+  "Dependency Task ID", "Recurring Type",
+  "Created At", "Updated At", "Last Status Changed At",
+  "Notes"
+]);
+
+/** Index (0-based) của các cột quan trọng, dùng thường xuyên khi đọc/ghi range. */
+var TASK_COL = Object.freeze((function () {
+  var map = {};
+  for (var i = 0; i < TASK_FIELDS.length; i++) {
+    map[TASK_FIELDS[i]] = i;
+  }
+  return map;
+})());
+
+var ACTIVITY_LOG_FIELDS = Object.freeze([
+  "timestamp", "user", "taskId", "action", "oldValue", "newValue"
+]);
+
+var ACTIVITY_LOG_HEADERS = Object.freeze([
+  "Timestamp", "User", "Task ID", "Action", "Old Value", "New Value"
+]);
